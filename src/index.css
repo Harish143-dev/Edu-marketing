@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 100% 97%;
+    --foreground: 0 8% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 8% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 8% 8%;
+
+    --primary: 355 78% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 186 78% 60%;
+    --secondary-foreground: 0 8% 8%;
+
+    --muted: 30 100% 97%;
+    --muted-foreground: 0 8% 40%;
+
+    --accent: 48 97% 53%;
+    --accent-foreground: 0 8% 8%;
+
+    --destructive: 355 78% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 186 78% 60%;
+
+    --radius: 1rem;
+
+    /* Custom brand colors */
+    --chilli-red: 355 78% 50%;
+    --orange-punch: 16 100% 50%;
+    --mustard: 45 100% 60%;
+    --electric-teal: 168 100% 39%;
+    --cream: 30 100% 97%;
+    --ink-black: 240 25% 5%;
+    
+    /* Optional accents */
+    --hot-pink: 340 100% 59%;
+    --lime-spark: 82 100% 59%;
+    --royal-blue: 222 100% 59%;
+    --neon-green: 82 100% 59%;
+  }
+
+  .dark {
+    --background: 0 8% 8%;
+    --foreground: 30 100% 97%;
+
+    --card: 0 8% 12%;
+    --card-foreground: 30 100% 97%;
+
+    --popover: 0 8% 12%;
+    --popover-foreground: 30 100% 97%;
+
+    --primary: 355 78% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 186 78% 60%;
+    --secondary-foreground: 0 8% 8%;
+
+    --muted: 0 8% 15%;
+    --muted-foreground: 30 30% 70%;
+
+    --accent: 48 97% 53%;
+    --accent-foreground: 0 8% 8%;
+
+    --destructive: 355 78% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100%;
+    --input: 0 0% 20%;
+    --ring: 186 78% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-secondary text-secondary-foreground;
+  }
+}
+
+@layer components {
+  .halftone-pattern {
+    background-image: radial-gradient(hsl(var(--chilli-red)) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .halftone-dots-light {
+    background-image: radial-gradient(hsl(var(--ink-black)) 1.5px, transparent 1.5px);
+    background-size: 16px 16px;
+  }
+
+  .confetti-pattern {
+    background-image: radial-gradient(hsl(var(--electric-teal)) 2px, transparent 2px), radial-gradient(hsl(var(--mustard)) 2px, transparent 2px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+  }
+
+  .dotted-pattern {
+    background-image: radial-gradient(hsl(var(--ink-black) / 0.15) 2px, transparent 2px);
+    background-size: 20px 20px;
+  }
+
+  .sticker {
+    @apply transition-transform duration-300;
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,1));
+  }
+
+  .sticker:hover {
+    transform: scale(1.1) rotate(5deg) !important;
+    z-index: 50;
+  }
+
+  .card-brutal {
+    @apply border-4 border-ink-black;
+    box-shadow: 6px 6px 0px 0px hsl(var(--ink-black));
+  }
+
+  .card-brutal:hover {
+    box-shadow: 2px 2px 0px 0px hsl(var(--ink-black));
+    transform: translate(4px, 4px);
+  }
+
+  .blob-shape-1 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  .blob-shape-2 { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  .blob-shape-5 { border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%; }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 2px hsl(var(--ink-black));
+    paint-order: stroke fill;
+  }
+}
+
+/* Slush.app inspired elastic easing and animations */
+:root {
+  --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+  --cubic-bounce: linear(0, 1.3, 1, 0.92, 1, 0.99, 1, 1.004, 0.998, 1 100% 100%);
+  --duration-default: 0.75s;
+  --duration-medium: 0.85s;
+  --smooth-ease: cubic-bezier(.32, .72, 0, 1);
+  --elastic-ease-out: linear(
+    0,
+    0.5737 7.6%,
+    0.8382 11.87%,
+    0.9463 14.19%,
+    1.0292 16.54%,
+    1.0886 18.97%,
+    1.1258 21.53%,
+    1.137 22.97%,
+    1.1424 24.48%,
+    1.1423 26.1%,
+    1.1366 27.86%,
+    1.1165 31.01%,
+    1.0507 38.62%,
+    1.0219 42.57%,
+    0.9995 46.99%,
+    0.9872 51.63%,
+    0.9842 58.77%,
+    1.0011 81.26%,
+    1
+  );
+}
+
+/* 3D Button animations inspired by slush.app */
+.button-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.button-3d-inner {
+  transform-style: preserve-3d;
+  transition: transform var(--duration-medium) var(--elastic-ease-out);
+}
+
+.button-3d-front {
+  backface-visibility: hidden;
+  transition: translate var(--duration-medium) var(--elastic-ease-out), 
+              rotate var(--duration-default) var(--elastic-ease-out), 
+              opacity 0.15s ease-out;
+}
+
+.button-3d-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  opacity: 0;
+  translate: 0 2em -6em;
+  rotate: 1 0 0 -90deg;
+  transition: translate var(--duration-medium) var(--elastic-ease-out), 
+              rotate var(--duration-default) var(--elastic-ease-out), 
+              opacity 0.075s ease-in;
+}
+
+@media (hover: hover) {
+  .button-3d:hover .button-3d-front {
+    translate: 0 -2em -6em;
+    rotate: 1 0 0 85deg;
+    opacity: 0;
+  }
+  
+  .button-3d:hover .button-3d-back {
+    rotate: 1 0 0 0deg;
+    translate: 0 0 0;
+    opacity: 1;
+  }
+  
+  .button-3d:active {
+    transform: scale(0.955);
+  }
+}
+
+/* Letter clipping effect for slush-style typography */
+.letter-clip-1 { clip-path: inset(0% 0px 0px 0px); }
+.letter-clip-2 { clip-path: inset(70% 0px 0px 0px); }
+.letter-clip-3 { clip-path: inset(78% 0px 0px 0px); }
+.letter-clip-4 { clip-path: inset(85% 0px 0px 0px); }
+.letter-clip-5 { clip-path: inset(95% 0px 0px 0px); }
+
+/* Underline animation */
+.text-link-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-link-animated::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.125em;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s var(--cubic-default);
+}
+
+.text-link-animated:hover::after {
+  transform: scaleX(1);
+  transform-origin: right center;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: hsl(var(--ink-black)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--chilli-red) / 0.5); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--chilli-red)); }
