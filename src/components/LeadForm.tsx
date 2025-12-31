@@ -28,7 +28,7 @@ const LeadForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormData({ institution: "", contact: "", type: "", country: "", countryCode: "+91", phone: "", email: "", message: "" });
-    window.open("/thank-you", "_blank");
+    window.open("/edu-marketing/thank-you", "_blank");
   };
 
   return (
