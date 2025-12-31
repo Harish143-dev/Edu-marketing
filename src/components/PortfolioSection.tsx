@@ -4,7 +4,7 @@ import portfolioSchoolBranding from "@/assets/portfolio-school-branding.jpg";
 import portfolioWhatsappMarketing from "@/assets/whatsapp.jpg";
 import portfolioGraduationCelebration from "@/assets/portfolio-graduation-celebration.jpg";
 import portfolioWebExperience from "@/assets/vfx.jpg";
-import portfolioMetaAds from "@/assets/instagram-post.png";
+import portfolioMetaAds from "@/assets/Preschool_Instagram_Mockup.jpg";
 import portfolioGoogleBusiness from "@/assets/portfolio-google-business.png";
 import portfolioCounselor from "@/assets/CallCenter.jpg";
 import portfolioSocial from "@/assets/crm.jpg";
