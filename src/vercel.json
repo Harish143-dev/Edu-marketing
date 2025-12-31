@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "src": "/edu-marketing/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
